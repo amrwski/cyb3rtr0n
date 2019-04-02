@@ -1,6 +1,8 @@
-function Ghost() {
-  this.pos = createVector(WIDTH / 2, HEIGHT / 2)
-  this.render = function() {
+class Ghost {
+  constructor() {
+    this.pos = createVector(WIDTH / 2, HEIGHT / 2)
+  }
+  render() {
     fill(255, 212, 0)
     ellipse(this.pos.x, this.pos.y, 10, 10)
 

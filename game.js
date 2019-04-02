@@ -11,10 +11,9 @@ function draw() {
   background(0)
   frameRate(60)
   ghost.render()
-
-  text("X: " + mouseX, 0, HEIGHT / 4)
-  text("Y: " + mouseY, 0, HEIGHT / 2)
-
   slugs.forEach(el => el.draw())
   slugs.forEach(el => el.update())
+
+  replicants.forEach(el => el.render())
+  setInterval(spawnReplicant, spawnInterval)
 }
