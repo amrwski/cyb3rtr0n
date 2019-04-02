@@ -1,7 +1,6 @@
 let ghost
 let replicants = []
 let slugs = []
-let mapFloor
 
 function setup() {
   mapFloor = loadImage("../assets/carbon-floor.png")
