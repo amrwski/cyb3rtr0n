@@ -24,4 +24,8 @@ class Bullet {
 
 function mouseClicked() {
   slugs.push(new Bullet(this.mouseX, this.mouseY, ghost.pos.x, ghost.pos.y))
+  // remove fired bullets
+  // if (slugs.length > 10) {
+  //   slugs.length = 10
+  // }
 }

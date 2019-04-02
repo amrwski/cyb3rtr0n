@@ -13,7 +13,9 @@ function draw() {
   ghost.render()
   slugs.forEach(el => el.draw())
   slugs.forEach(el => el.update())
-
-  replicants.forEach(el => el.render())
-  setInterval(spawnReplicant, spawnInterval)
+  replicants.forEach(rep => rep.render())
 }
+
+setInterval(() => {
+  spawnReplicant()
+}, spawnInterval)
