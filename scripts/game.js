@@ -1,14 +1,16 @@
 let ghost
 let replicants = []
 let slugs = []
+let mapFloor
 
 function setup() {
+  mapFloor = loadImage("../assets/carbon-floor.png")
   createCanvas(WIDTH, HEIGHT)
   ghost = new Ghost()
 }
 
 function draw() {
-  background(0)
+  background(mapFloor)
   frameRate(60)
   ghost.render()
   slugs.forEach(el => el.draw())
