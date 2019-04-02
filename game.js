@@ -12,13 +12,17 @@ function draw() {
   frameRate(60)
   ghost.render()
   this.fire()
+  this.updateBullet
   this.printXY()
-
-  for (let i = 0; i < slugs.length; i++) {
-    slugs[i].render()
-    slugs[i].update()
-  }
 
   text("X: " + mouseX, 0, HEIGHT / 4)
   text("Y: " + mouseY, 0, HEIGHT / 2)
+
+  slugs.forEach(el => el.draw())
+  slugs.forEach(el => el.update())
 }
+
+// for (let i = 0; i < slugs.length; i++) {
+//   slugs[i].render()
+//   slugs[i].update()
+// }
