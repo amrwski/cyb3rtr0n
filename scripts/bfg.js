@@ -18,19 +18,18 @@ class Bullet {
     this.bullY += this.speedY * 0.1
     pop()
 
-    // remove bullets
-    slugs.forEach(function(bull) {
+    // remove bullets when out of canvas
+    slugs.forEach(function(bull, i) {
       if (bull.bullY < 0 || bull.bullY > 720) {
-        slugs.shift(bull)
+        slugs.splice(i, 1)
       }
     })
   }
 
+  // accellerate bullet if clicked near ghost
   adjustSpeed() {
-    while (Math.abs(this.speedX) < 300) {
+    while (Math.abs(this.speedX) < 300 && Math.abs(this.speedY) < 300) {
       this.speedX *= 2
-    }
-    while (Math.abs(this.speedY) < 300) {
       this.speedY *= 2
     }
   }
@@ -42,7 +41,6 @@ class Bullet {
 
 function mouseClicked() {
   let newBullet = new Bullet(mouseX, mouseY, ghost.pos.x, ghost.pos.y)
-  // newBullet.adjustSpeed()       ---messes with the direction of the bullet
-  // console.log(newBullet.bullY)
+  newBullet.adjustSpeed()
   slugs.push(newBullet)
 }

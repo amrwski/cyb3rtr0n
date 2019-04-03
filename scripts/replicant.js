@@ -2,8 +2,8 @@ let spawnInterval = 5000
 
 class Replicant {
   constructor() {
-    this.height = 50
-    this.width = 50
+    this.width = 70
+    this.height = 160
     this.randPositionX = random(0 + this.width, WIDTH - this.width)
     this.randPositionY = random(0 + this.height, HEIGHT - this.height)
   }

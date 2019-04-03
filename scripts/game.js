@@ -21,31 +21,34 @@ function draw() {
   replicants.forEach(rep => rep.render())
 
   // bullet collision
-  replicants.forEach(function(replic) {
+  replicants.forEach(function(replic, replicIndex) {
     const replicPosX = replic.randPositionX
     const replicPosY = replic.randPositionY
     const width = replic.width
-    slugs.forEach(function(slug) {
+    const height = replic.height
+    slugs.forEach(function(slug, slugIndex) {
       const slugPosX = slug.bullX
       const slugPosY = slug.bullY
       const radius = 5
-      hit = collideCircleCircle(replicPosX, replicPosY, width, slugPosX, slugPosY, radius)
-      print("hit? " + hit)
+      if (
+        collideRectCircle(
+          replicPosX,
+          replicPosY,
+          width * 0.25,
+          height * 0.25,
+          slugPosX,
+          slugPosY,
+          radius
+        )
+      ) {
+        replicants.splice(replicIndex, 1) // remove replicant on hit
+        slugs.splice(slugIndex, 1) // remove bullet on hit
+      }
     })
   })
 }
 
+//repli spawn
 setInterval(() => {
   spawnReplicant()
 }, spawnInterval)
-
-slugs.forEach(function(bull) {
-  if (bull.bullY < 0 || bull.bullY > 720) {
-    slugs.shift(bull)
-  }
-})
-
-// remove on hit
-// if (hit === true) {
-
-// }

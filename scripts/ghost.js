@@ -22,14 +22,14 @@ class Ghost {
     }
 
     // map limits
-    if (this.pos.x >= WIDTH) {
-      this.pos.x = WIDTH
+    if (this.pos.x >= WIDTH - ghostSprite.width * 0.25) {
+      this.pos.x = WIDTH - ghostSprite.width * 0.25
     }
     if (this.pos.x <= 0) {
       this.pos.x = 0
     }
-    if (this.pos.y >= HEIGHT) {
-      this.pos.y = HEIGHT
+    if (this.pos.y >= HEIGHT - ghostSprite.height * 0.25) {
+      this.pos.y = HEIGHT - ghostSprite.height * 0.25
     }
     if (this.pos.y <= 0) {
       this.pos.y = 0
