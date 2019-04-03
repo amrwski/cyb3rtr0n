@@ -2,18 +2,39 @@ let ghost
 let replicants = []
 let slugs = []
 let hit = false
+let splats = []
+let splatsArr = []
 
 function setup() {
   mapFloor = loadImage("../assets/background/carbon-floor.png")
   bulletSprite = loadImage("../assets/bullets/bullet1.png")
   ghostSprite = loadImage("../assets/cutouts/ghost/front1.png")
   replicantSprite = loadImage("../assets/cutouts/replicant/0-front1.png")
+  splatsArr = [
+    (bloodSplat1 = loadImage("../assets/splats/bloodsplats_0001.png")),
+    (bloodSplat2 = loadImage("../assets/splats/bloodsplats_0002.png")),
+    (bloodSplat3 = loadImage("../assets/splats/bloodsplats_0003.png")),
+    (bloodSplat4 = loadImage("../assets/splats/bloodsplats_0004.png")),
+    (bloodSplat5 = loadImage("../assets/splats/bloodsplats_0005.png")),
+    (bloodSplat6 = loadImage("../assets/splats/bloodsplats_0006.png")),
+    (bloodSplat7 = loadImage("../assets/splats/bloodsplats_0007.png"))
+  ]
+  randSplat = random(splatsArr)
   createCanvas(WIDTH, HEIGHT)
   ghost = new Ghost()
 }
 
 function draw() {
   background(mapFloor)
+  splats.forEach(splat => {
+    image(
+      splat.randSplat,
+      splat.replicPosX,
+      splat.replicPosY,
+      splat.randSplat.width * 0.25,
+      splat.randSplat.height * 0.25
+    )
+  })
   frameRate(60)
   ghost.render()
   slugs.forEach(el => el.draw())
@@ -41,14 +62,21 @@ function draw() {
           radius
         )
       ) {
+        splats.push({
+          randSplat,
+          replicPosX,
+          replicPosY
+        })
+
         replicants.splice(replicIndex, 1) // remove replicant on hit
         slugs.splice(slugIndex, 1) // remove bullet on hit
+        randSplat = random(splatsArr)
       }
     })
   })
 }
 
-//repli spawn
+//replicant spawn
 setInterval(() => {
   spawnReplicant()
 }, spawnInterval)
