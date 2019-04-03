@@ -9,8 +9,13 @@ class Replicant {
   }
 
   render() {
-    fill(255, 69, 0)
-    ellipse(this.randPositionX, this.randPositionY, this.width, this.height)
+    image(
+      replicantSprite,
+      this.randPositionX,
+      this.randPositionY,
+      replicantSprite.width * 0.25,
+      replicantSprite.height * 0.25
+    )
   }
 }
 

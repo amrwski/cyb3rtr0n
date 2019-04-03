@@ -13,10 +13,7 @@ class Bullet {
   }
   draw() {
     push()
-    stroke(255)
-    strokeWeight(0.5)
-    fill(200, 0, 200)
-    ellipse(this.bullX, this.bullY, 5)
+    image(bulletSprite, this.bullX, this.bullY, bulletSprite.width * 0.75, bulletSprite.height * 0.75)
     this.bullX += this.speedX * 0.1
     this.bullY += this.speedY * 0.1
     pop()

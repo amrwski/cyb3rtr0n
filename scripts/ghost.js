@@ -3,8 +3,7 @@ class Ghost {
     this.pos = createVector(WIDTH / 2, HEIGHT / 2)
   }
   render() {
-    fill(255, 212, 0)
-    ellipse(this.pos.x, this.pos.y, 10, 10)
+    image(ghostSprite, this.pos.x, this.pos.y, ghostSprite.width * 0.25, ghostSprite.height * 0.25)
 
     // movement
     if (keyIsDown(65)) {

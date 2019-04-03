@@ -5,6 +5,9 @@ let hit = false
 
 function setup() {
   mapFloor = loadImage("../assets/background/carbon-floor.png")
+  bulletSprite = loadImage("../assets/bullets/bullet1.png")
+  ghostSprite = loadImage("../assets/cutouts/ghost/front1.png")
+  replicantSprite = loadImage("../assets/cutouts/replicant/0-front1.png")
   createCanvas(WIDTH, HEIGHT)
   ghost = new Ghost()
 }
@@ -27,7 +30,7 @@ function draw() {
       const slugPosY = slug.bullY
       const radius = 5
       hit = collideCircleCircle(replicPosX, replicPosY, width, slugPosX, slugPosY, radius)
-      print("colliding? " + hit)
+      print("hit? " + hit)
     })
   })
 }
@@ -35,3 +38,14 @@ function draw() {
 setInterval(() => {
   spawnReplicant()
 }, spawnInterval)
+
+slugs.forEach(function(bull) {
+  if (bull.bullY < 0 || bull.bullY > 720) {
+    slugs.shift(bull)
+  }
+})
+
+// remove on hit
+// if (hit === true) {
+
+// }
