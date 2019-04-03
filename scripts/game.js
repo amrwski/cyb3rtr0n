@@ -3,7 +3,7 @@ let replicants = []
 let slugs = []
 
 function setup() {
-  mapFloor = loadImage("../assets/carbon-floor.png")
+  mapFloor = loadImage("../assets/background/carbon-floor.png")
   createCanvas(WIDTH, HEIGHT)
   ghost = new Ghost()
 }

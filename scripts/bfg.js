@@ -20,6 +20,13 @@ class Bullet {
     this.bullX += this.speedX * 0.1
     this.bullY += this.speedY * 0.1
     pop()
+
+    // remove bullets
+    slugs.forEach(function(bull) {
+      if (bull.bullY < 0 || bull.bullY > 720) {
+        slugs.shift(bull)
+      }
+    })
   }
 
   adjustSpeed() {
@@ -38,12 +45,7 @@ class Bullet {
 
 function mouseClicked() {
   let newBullet = new Bullet(mouseX, mouseY, ghost.pos.x, ghost.pos.y)
-  newBullet.adjustSpeed()
-
+  // newBullet.adjustSpeed()       ---messes with the direction of the bullet
+  // console.log(newBullet.bullY)
   slugs.push(newBullet)
-  //   console.log(slugs.length)
-  //   // console.log(slugs[0].bullY)
-  //   if (slugs[0].bullY < 0 || slugs[0].bullY > 800) {
-  //     slugs[0].shift()
-  //   }
 }

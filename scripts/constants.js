@@ -1,2 +1,2 @@
-const WIDTH = 800
-const HEIGHT = 800
+const WIDTH = 720
+const HEIGHT = 720

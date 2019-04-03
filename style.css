@@ -3,4 +3,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./assets/background/cyberpunk-wallpapers-30824-3264482.jpg");
 }
