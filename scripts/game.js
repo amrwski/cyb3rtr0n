@@ -74,6 +74,29 @@ function draw() {
       }
     })
   })
+
+  // calculate difference vector
+  diffArr = []
+  replicants.forEach(function(replic) {
+    let dx = ghost.pos.x - replic.randPositionX
+    let dy = ghost.pos.y - replic.randPositionY
+    diffArr.push(dx, dy)
+  })
+
+  // normalize (direction vector with length of 1)
+  let distToGhost = Math.sqrt(diffArr[0] * diffArr[0] + diffArr[1] * diffArr[1])
+  if (distToGhost) {
+    diffArr[0] /= distToGhost // dx
+    diffArr[1] /= distToGhost //dy
+  }
+
+  // move
+  // SPEED = speed (units/sec)
+  // delta = elapsed time (sec) ???
+  replicants.forEach(function(replic) {
+    replic.randPositionX += diffArr[0] * SPEED
+    replic.randPositionY += diffArr[1] * SPEED
+  })
 }
 
 //replicant spawn
