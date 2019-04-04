@@ -1,5 +1,7 @@
 class Ghost {
   constructor() {
+    this.width = width
+    this.height = height
     this.pos = createVector(WIDTH / 2, HEIGHT / 2)
     this.sprite = new Sprite(animation, this.pos.x, this.pos.y, SPEED)
   }

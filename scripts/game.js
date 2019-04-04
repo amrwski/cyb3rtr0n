@@ -97,6 +97,36 @@ function draw() {
     replic.randPositionX += dx / random(50, 100) // speed
     replic.randPositionY += dy / random(50, 100)
   })
+
+  // ghost-repli collision
+  let ghostHit = false
+  replicants.forEach(function(replic) {
+    const replicPosX = replic.randPositionX
+    const replicPosY = replic.randPositionY
+    const width = replic.width
+    const height = replic.height
+    ghostPos = {
+      positionX: ghost.pos.x,
+      positionY: ghost.pos.y,
+      width: ghost.width,
+      height: ghost.height
+    }
+    ghostHit = collideRectRect(
+      replicPosX,
+      replicPosY,
+      width,
+      height,
+      ghostPos.positionX,
+      ghostPos.positionY,
+      ghostPos.width,
+      ghostPos.height
+    )
+
+    if (ghostHit) {
+      health.value -= 10
+      console.log(ghostHit)
+    }
+  })
 }
 
 // repli spawn
