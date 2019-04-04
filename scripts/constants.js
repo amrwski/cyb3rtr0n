@@ -1,3 +1,4 @@
 const WIDTH = 720
 const HEIGHT = 720
+let SPAWN_INTERVAL = 3000
 const SPEED = 2
