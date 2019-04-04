@@ -11,9 +11,17 @@ class Replicant {
     this.sprite.x = this.randPositionX
     this.sprite.y = this.randPositionY
     this.sprite.scope = 0
-    this.sprite.index += 0.1
+    this.sprite.index += 0.2
     this.sprite.show()
   }
+
+  // adjustSpeed() {
+  //   while (Math.abs(this.SPEED) < 300 && Math.abs(this.SPEED) < 300) {
+  //     this.speedX *= 2
+  //     this.speedY *= 2
+  //   }
+  // }
+  //
 }
 
 function spawnReplicant() {

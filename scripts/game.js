@@ -99,32 +99,17 @@ function draw() {
   })
 
   // ghost-repli collision
-  let ghostHit = false
+  // let ghostHit = false
   replicants.forEach(function(replic) {
     const replicPosX = replic.randPositionX
     const replicPosY = replic.randPositionY
-    const width = replic.width
-    const height = replic.height
     ghostPos = {
       positionX: ghost.pos.x,
-      positionY: ghost.pos.y,
-      width: ghost.width,
-      height: ghost.height
+      positionY: ghost.pos.y
     }
-    ghostHit = collideRectRect(
-      replicPosX,
-      replicPosY,
-      width,
-      height,
-      ghostPos.positionX,
-      ghostPos.positionY,
-      ghostPos.width,
-      ghostPos.height
-    )
 
-    if (ghostHit) {
-      health.value -= 10
-      console.log(ghostHit)
+    if (collidePointPoint(replicPosX, replicPosY, ghost.pos.x, ghost.pos.y, 20)) {
+      ghost.health -= 5
     }
   })
 }

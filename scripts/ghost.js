@@ -1,12 +1,16 @@
 class Ghost {
   constructor() {
-    this.width = width
-    this.height = height
     this.pos = createVector(WIDTH / 2, HEIGHT / 2)
     this.sprite = new Sprite(animation, this.pos.x, this.pos.y, SPEED)
+    this.health = 200
   }
+
   render() {
+    rect(510, 10, this.health, 20)
+    let c = color(231, 0, 0)
+    fill(c)
     // movement & anims
+
     this.sprite.x = this.pos.x
     this.sprite.y = this.pos.y
     this.sprite.show()
@@ -14,12 +18,12 @@ class Ghost {
     if (keyIsDown(65)) {
       this.pos.x -= 3
       this.sprite.scope = 15
-      this.sprite.index += 0.1
+      this.sprite.index += 0.2
     }
     if (keyIsDown(68)) {
       this.pos.x += 3
       this.sprite.scope = 18
-      this.sprite.index += 0.1
+      this.sprite.index += 0.2
     }
 
     if (keyIsDown(87)) {

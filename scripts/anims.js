@@ -1,13 +1,13 @@
 class Sprite {
-  constructor(animation, x, y, SPEED) {
+  constructor(animation, x, y, speed) {
     this.x = x
     this.y = y
     this.animation = animation
     this.w = this.animation[0].width
     this.len = this.animation.length
-    this.speed = SPEED
+    this.speed = speed * 2
     this.index = 0
-    this.scope = 0
+    this.scope = 12
   }
 
   show() {
