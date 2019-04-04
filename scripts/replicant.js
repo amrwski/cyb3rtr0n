@@ -4,16 +4,15 @@ class Replicant {
     this.height = 160
     this.randPositionX = random(0 - this.width, WIDTH + this.width)
     this.randPositionY = random(0 - this.height, HEIGHT + this.height)
+    this.sprite = new Sprite(animation, this.randPositionX, this.randPositionY, SPEED)
   }
 
-  render1() {
-    image(
-      replicantSprite,
-      this.randPositionX,
-      this.randPositionY,
-      replicantSprite.width * 0.25,
-      replicantSprite.height * 0.25
-    )
+  render() {
+    this.sprite.x = this.randPositionX
+    this.sprite.y = this.randPositionY
+    this.sprite.scope = 0
+    this.sprite.index += 0.1
+    this.sprite.show()
   }
 }
 

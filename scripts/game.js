@@ -1,22 +1,16 @@
-let ghost
 let replicants = []
 let slugs = []
-let hit = false
 let splats = []
 let splatsArr = []
-///
+
 let spritesheet
 let spritedata
 let animation = []
-let replicSprites = []
-///
 
-///
 function preload() {
   spritedata = loadJSON("/assets/spritesheets/sprites.json")
   spritesheet = loadImage("/assets/spritesheets/sheet.png")
 }
-///
 
 function setup() {
   mapFloor = loadImage("../assets/background/carbon-floor.png")
@@ -34,21 +28,13 @@ function setup() {
   ]
   randSplat = random(splatsArr)
   createCanvas(WIDTH, HEIGHT)
-
-  ///
   let frames = spritedata.frames
   for (let i = 0; i < frames.length; i++) {
     let pos = frames[i].frame
     let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h)
     animation.push(img)
   }
-  ///
-
   ghost = new Ghost()
-
-  // for (let i = 0; i < 1; i++) {
-  //   replicSprites[i] = new Sprite(animation, 0, i * 75, random(0.1, 0.4))
-  // }
 }
 
 function draw() {
@@ -63,11 +49,11 @@ function draw() {
     )
   })
   frameRate(60)
+
   ghost.render()
+  replicants.forEach(rep => rep.render())
   slugs.forEach(el => el.draw())
   slugs.forEach(el => el.update())
-
-  if (replicants.length !== 0) replicants.forEach(rep => rep.render1())
 
   // bullet collision
   replicants.forEach(function(replic, replicIndex) {
@@ -103,40 +89,17 @@ function draw() {
     })
   })
 
-  // replicant movement -- difference vector
-  diffArr = []
+  // pos diff vector & repli move
   replicants.forEach(function(replic) {
     let dx = ghost.pos.x - replic.randPositionX
     let dy = ghost.pos.y - replic.randPositionY
 
-    replic.randPositionX += dx / 100
-    replic.randPositionY += dy / 100
-
-    // diffArr.push(dx, dy)
+    replic.randPositionX += dx / random(50, 100) // speed
+    replic.randPositionY += dy / random(50, 100)
   })
-
-  // normalize
-  // let distToGhost = Math.sqrt(diffArr[0] * diffArr[0] + diffArr[1] * diffArr[1])
-  // if (distToGhost) {
-  //   diffArr[0] /= distToGhost // dx
-  //   diffArr[1] /= distToGhost // dy
-  // }
-
-  // // move
-  // replicants.forEach(function(replic) {
-  //   replic.randPositionX += diffArr[0] * SPEED
-  //   replic.randPositionY += diffArr[1] * SPEED
-  // })
-
-  ///
-  // for (let repli of replicSprites) {
-  //   repli.show()
-  //   repli.animate()
-  // }
-  ///
 }
 
-// replicant spawn
+// repli spawn
 setInterval(() => {
   spawnReplicant()
 }, SPAWN_INTERVAL)

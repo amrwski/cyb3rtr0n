@@ -4,30 +4,31 @@ class Ghost {
     this.sprite = new Sprite(animation, this.pos.x, this.pos.y, SPEED)
   }
   render() {
-    // image(ghostSprite, this.pos.x, this.pos.y, ghostSprite.width * 0.25, ghostSprite.height * 0.25)
-    // new Sprite(animation, this.pos.x, this.pos.y, SPEED)
-    // movement
-    // this.sprite = new Sprite(animation, this.pos.x, this.pos.y, SPEED)
+    // movement & anims
     this.sprite.x = this.pos.x
     this.sprite.y = this.pos.y
     this.sprite.show()
-    // this.sprite.animate()
 
     if (keyIsDown(65)) {
       this.pos.x -= 3
-      this.sprite.scope = 4
+      this.sprite.scope = 15
       this.sprite.index += 0.1
     }
     if (keyIsDown(68)) {
       this.pos.x += 3
+      this.sprite.scope = 18
+      this.sprite.index += 0.1
     }
 
     if (keyIsDown(87)) {
       this.pos.y -= 3
+      this.sprite.scope = 21
+      this.sprite.index += 0.1
     }
 
     if (keyIsDown(83)) {
       this.pos.y += 3
+      this.sprite.scope = 12
       this.sprite.index += 0.1
     }
 
