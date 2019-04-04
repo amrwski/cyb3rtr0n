@@ -6,11 +6,11 @@ class Ghost {
   }
 
   render() {
+    // health bar
     rect(510, 10, this.health, 20)
-    let c = color(231, 0, 0)
-    fill(c)
-    // movement & anims
+    fill(color(231, 0, 0))
 
+    // movement & anims
     this.sprite.x = this.pos.x
     this.sprite.y = this.pos.y
     this.sprite.show()

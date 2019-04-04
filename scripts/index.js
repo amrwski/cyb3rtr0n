@@ -1,19 +1,19 @@
 // class Game {
 //   constructor() {}
 
-//   setSpawnInterval() {
-//     this.spawnIntervalTimer -= 100
-//     if (this.spawnInterval) {
-//       clearInterval(this.spawnInterval)
-//     }
+ setSpawnInterval() {
+    this.spawnIntervalTimer -= 100
+    if (this.spawnInterval) {
+      clearInterval(this.spawnInterval)
+    }
 
-//     this.spawnInterval = setInterval(
-//       function() {
-//         this.obstacles.push(new Obstacle())
-//       }.bind(this),
-//       this.spawnIntervalTimer
-//     )
-//   }
+    this.spawnInterval = setInterval(
+      function() {
+        this.obstacles.push(new Obstacle())
+      }.bind(this),
+      this.spawnIntervalTimer
+    )
+  } 
 
 //   setScoreInterval() {
 //     this.scoreInterval = setInterval(

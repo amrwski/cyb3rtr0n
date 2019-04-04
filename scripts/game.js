@@ -2,7 +2,6 @@ let replicants = []
 let slugs = []
 let splats = []
 let splatsArr = []
-
 let spritesheet
 let spritedata
 let animation = []
@@ -94,12 +93,17 @@ function draw() {
     let dx = ghost.pos.x - replic.randPositionX
     let dy = ghost.pos.y - replic.randPositionY
 
-    replic.randPositionX += dx / random(50, 100) // speed
-    replic.randPositionY += dy / random(50, 100)
+    // speed adjustment to prevent slow down near ghost
+    while (Math.abs(dy) < 100 && Math.abs(dx) < 100) {
+      dx *= 1.5
+      dy *= 1.5
+    }
+
+    replic.randPositionX += dx / 75 // speed
+    replic.randPositionY += dy / 75
   })
 
   // ghost-repli collision
-  // let ghostHit = false
   replicants.forEach(function(replic) {
     const replicPosX = replic.randPositionX
     const replicPosY = replic.randPositionY
@@ -113,8 +117,3 @@ function draw() {
     }
   })
 }
-
-// repli spawn
-setInterval(() => {
-  spawnReplicant()
-}, SPAWN_INTERVAL)

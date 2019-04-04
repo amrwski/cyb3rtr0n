@@ -13,17 +13,41 @@ class Replicant {
     this.sprite.scope = 0
     this.sprite.index += 0.2
     this.sprite.show()
+    console.log(spawnInterval)
   }
-
-  // adjustSpeed() {
-  //   while (Math.abs(this.SPEED) < 300 && Math.abs(this.SPEED) < 300) {
-  //     this.speedX *= 2
-  //     this.speedY *= 2
-  //   }
-  // }
-  //
 }
 
-function spawnReplicant() {
+/* function spawnReplicant() {
+  console.log("hello from spawn function", replicants.length)
   replicants.push(new Replicant())
 }
+
+setInterval(() => {
+  if (spawnInterval < 1000) {
+    spawnInterval = 1000
+  } else {
+    spawnInterval -= 300
+  }
+}, 5000)
+
+// repli spawn
+setInterval(() => {
+  spawnReplicant()
+}, spawnInterval)
+ */
+let spawnIntervalTimer = 3000
+
+const setSpawnInterval = () => {
+  console.log("A")
+  spawnIntervalTimer -= 500
+  if (spawnInterval) {
+    clearInterval(spawnInterval)
+  }
+}
+
+let spawnInterval = setInterval(() => {
+  console.log("A")
+  replicants.push(new Replicant())
+}, this.spawnInterval)
+
+setSpawnInterval()
