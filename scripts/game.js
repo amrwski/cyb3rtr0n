@@ -99,8 +99,8 @@ function draw() {
       dy *= 1.5
     }
 
-    replic.randPositionX += dx / 75 // speed
-    replic.randPositionY += dy / 75
+    replic.randPositionX += dx / 75 // speed x
+    replic.randPositionY += dy / 75 // speed y
   })
 
   // ghost-repli collision
@@ -117,3 +117,7 @@ function draw() {
     }
   })
 }
+
+setTimeout(() => {
+  spawnReplicant()
+}, 500)

@@ -16,38 +16,33 @@ class Replicant {
     console.log(spawnInterval)
   }
 }
+// function spawnReplicant() {
+//   replicants.push(new Replicant())
+// }
 
-/* function spawnReplicant() {
-  console.log("hello from spawn function", replicants.length)
-  replicants.push(new Replicant())
-}
+// let spawnInterval = 3000
 
-setInterval(() => {
-  if (spawnInterval < 1000) {
-    spawnInterval = 1000
+// setInterval(() => {
+//   if (spawnInterval < 1000) {
+//     spawnInterval = 1000
+//   } else {
+//     spawnInterval -= 300
+//   }
+// }, 5000)
+
+// // repli spawn
+// setInterval(() => {
+//   spawnReplicant()
+// }, spawnInterval)
+
+let spawnInterval = 3000
+
+function spawnReplicant() {
+  if (spawnInterval <= 500) {
+    spawnInterval = 500
   } else {
     spawnInterval -= 300
   }
-}, 5000)
-
-// repli spawn
-setInterval(() => {
-  spawnReplicant()
-}, spawnInterval)
- */
-let spawnIntervalTimer = 3000
-
-const setSpawnInterval = () => {
-  console.log("A")
-  spawnIntervalTimer -= 500
-  if (spawnInterval) {
-    clearInterval(spawnInterval)
-  }
-}
-
-let spawnInterval = setInterval(() => {
-  console.log("A")
   replicants.push(new Replicant())
-}, this.spawnInterval)
-
-setSpawnInterval()
+  setTimeout(spawnReplicant, spawnInterval)
+}

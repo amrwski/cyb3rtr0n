@@ -9,6 +9,9 @@ class Ghost {
     // health bar
     rect(510, 10, this.health, 20)
     fill(color(231, 0, 0))
+    if (this.health <= 0) {
+      this.health = 5
+    }
 
     // movement & anims
     this.sprite.x = this.pos.x
