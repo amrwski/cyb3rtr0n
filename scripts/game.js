@@ -6,11 +6,14 @@ let spritesheet
 let spritedata
 let animation = []
 let audio
+let defcon
+let score = 0
 
 function preload() {
   audio = loadSound("/assets/audio/cyber-tunez.mp3")
   spritedata = loadJSON("/assets/spritesheets/sprites.json")
   spritesheet = loadImage("/assets/spritesheets/sheet.png")
+  defcon = loadFont("/assets/fonts/defconzero.ttf")
 }
 
 function setup() {
@@ -58,7 +61,10 @@ function draw() {
   slugs.forEach(el => el.draw())
   slugs.forEach(el => el.update())
 
-  // text("You ded, Punk!!", 300, 300)
+  // score display
+  text(score, 10, 30)
+  textFont(defcon)
+  textSize(30)
 
   // bullet collision
   replicants.forEach(function(replic, replicIndex) {
@@ -90,6 +96,8 @@ function draw() {
         replicants.splice(replicIndex, 1) // remove replicant on hit
         slugs.splice(slugIndex, 1) // remove bullet on hit
         randSplat = random(splatsArr)
+
+        score += 1000
       }
     })
   })
