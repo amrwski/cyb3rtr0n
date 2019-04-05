@@ -43,4 +43,6 @@ function mouseClicked() {
   let newBullet = new Bullet(mouseX, mouseY, ghost.pos.x, ghost.pos.y)
   newBullet.adjustSpeed()
   slugs.push(newBullet)
+  gun.setVolume(0.5)
+  gun.play()
 }

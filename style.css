@@ -13,9 +13,14 @@ body {
   height: 100vh;
 }
 
-.container {
+.game-over {
   font-family: "shogun";
   font-size: 180px;
+  color: rgb(231, 0, 0);
+}
 
+.score-display {
+  font-family: "shogun";
+  font-size: 60px;
   color: rgb(231, 0, 0);
 }

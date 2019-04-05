@@ -12,9 +12,14 @@ class Ghost {
     if (this.health <= 0) {
       remove()
       const gameOver = document.createElement("p")
-      gameOver.innerHTML = "You ded, Punk!"
-      gameOver.classList.add("container")
+      gameOver.innerHTML = "You ded, Punk"
+      gameOver.classList.add("game-over")
       document.body.appendChild(gameOver)
+
+      const scoreDisp = document.createElement("p")
+      scoreDisp.innerHTML = `You scored a measly ${score} points`
+      scoreDisp.classList.add("score-display")
+      document.body.appendChild(scoreDisp)
     }
 
     // movement & anims
