@@ -5,13 +5,15 @@ let splatsArr = []
 let spritesheet
 let spritedata
 let animation = []
-let audio
+let shakey
+let deathSound
 let gun
 let defcon
 let score = 0
 
 function preload() {
-  audio = loadSound("assets/audio/cyber-tunez.mp3")
+  shakey = loadSound("assets/audio/cyber-tunez.mp3")
+  deathSound = loadSound("/assets/audio/death.ogg")
   gun = loadSound("assets/audio/gunshot.wav")
   spritedata = loadJSON("assets/spritesheets/sprites.json")
   spritesheet = loadImage("assets/spritesheets/sheet.png")
@@ -23,18 +25,18 @@ function setup() {
   bulletSprite = loadImage("assets/bullets/bullet1.png")
   ghostSprite = loadImage("assets/cutouts/ghost/front1.png")
   splatsArr = [
-    (bloodSplat1 = loadImage("assets/splats/bloodsplats_0001.png")),
-    (bloodSplat2 = loadImage("assets/splats/bloodsplats_0002.png")),
-    (bloodSplat3 = loadImage("assets/splats/bloodsplats_0003.png")),
-    (bloodSplat4 = loadImage("assets/splats/bloodsplats_0004.png")),
-    (bloodSplat5 = loadImage("assets/splats/bloodsplats_0005.png")),
-    (bloodSplat6 = loadImage("assets/splats/bloodsplats_0006.png")),
-    (bloodSplat7 = loadImage("assets/splats/bloodsplats_0007.png"))
+    (bloodSplat1 = loadImage("assets/splats/bloodsplats-0001.png")),
+    (bloodSplat2 = loadImage("assets/splats/bloodsplats-0002.png")),
+    (bloodSplat3 = loadImage("assets/splats/bloodsplats-0003.png")),
+    (bloodSplat4 = loadImage("assets/splats/bloodsplats-0004.png")),
+    (bloodSplat5 = loadImage("assets/splats/bloodsplats-0005.png")),
+    (bloodSplat6 = loadImage("assets/splats/bloodsplats-0006.png")),
+    (bloodSplat7 = loadImage("assets/splats/bloodsplats-0007.png"))
   ]
   randSplat = random(splatsArr)
   createCanvas(WIDTH, HEIGHT)
-  audio.setVolume(0.5)
-  audio.play()
+  shakey.setVolume(0.5)
+  shakey.play()
 
   let frames = spritedata.frames
   for (let i = 0; i < frames.length; i++) {

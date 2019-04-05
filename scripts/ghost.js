@@ -33,6 +33,9 @@ class Ghost {
       newGame.classList.add("replay")
       newGame.appendChild(link)
       container.appendChild(newGame)
+
+      deathSound.setVolume(0.5)
+      deathSound.play()
     }
 
     // movement & anims

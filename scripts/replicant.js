@@ -19,8 +19,8 @@ class Replicant {
 let spawnInterval = 5000
 
 function spawnReplicant() {
-  if (spawnInterval <= 300) {
-    spawnInterval = 300
+  if (spawnInterval <= 200) {
+    spawnInterval = 200
   } else {
     spawnInterval -= 300
   }
