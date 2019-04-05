@@ -5,8 +5,10 @@ let splatsArr = []
 let spritesheet
 let spritedata
 let animation = []
+let audio
 
 function preload() {
+  audio = loadSound("/assets/audio/cyber-tunez.mp3")
   spritedata = loadJSON("/assets/spritesheets/sprites.json")
   spritesheet = loadImage("/assets/spritesheets/sheet.png")
 }
@@ -15,7 +17,6 @@ function setup() {
   mapFloor = loadImage("../assets/background/carbon-floor.png")
   bulletSprite = loadImage("../assets/bullets/bullet1.png")
   ghostSprite = loadImage("../assets/cutouts/ghost/front1.png")
-  replicantSprite = loadImage("../assets/cutouts/replicant/0-front1.png")
   splatsArr = [
     (bloodSplat1 = loadImage("../assets/splats/bloodsplats_0001.png")),
     (bloodSplat2 = loadImage("../assets/splats/bloodsplats_0002.png")),
@@ -27,6 +28,9 @@ function setup() {
   ]
   randSplat = random(splatsArr)
   createCanvas(WIDTH, HEIGHT)
+  audio.setVolume(0.5)
+  audio.play()
+
   let frames = spritedata.frames
   for (let i = 0; i < frames.length; i++) {
     let pos = frames[i].frame
@@ -53,6 +57,8 @@ function draw() {
   replicants.forEach(rep => rep.render())
   slugs.forEach(el => el.draw())
   slugs.forEach(el => el.update())
+
+  // text("You ded, Punk!!", 300, 300)
 
   // bullet collision
   replicants.forEach(function(replic, replicIndex) {
@@ -95,8 +101,8 @@ function draw() {
 
     // speed adjustment to prevent slow down near ghost
     while (Math.abs(dy) < 100 && Math.abs(dx) < 100) {
-      dx *= 1.5
-      dy *= 1.5
+      dx *= 2
+      dy *= 2
     }
 
     replic.randPositionX += dx / 75 // speed x

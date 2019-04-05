@@ -18,7 +18,7 @@ class Bullet {
     this.bullY += this.speedY * 0.1
     pop()
 
-    // remove bullets when out of canvas
+    // remove bullets out of canvas
     slugs.forEach(function(bull, i) {
       if (bull.bullY < 0 || bull.bullY > 720) {
         slugs.splice(i, 1)
@@ -26,7 +26,7 @@ class Bullet {
     })
   }
 
-  // accellerate bullet if clicked near ghost
+  // accellerate bullet near ghost
   adjustSpeed() {
     while (Math.abs(this.speedX) < 300 && Math.abs(this.speedY) < 300) {
       this.speedX *= 2

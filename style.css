@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "shogun";
+  src: url(/assets/fonts/shoguns.ttf);
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -6,4 +11,14 @@ body {
   background-position: center;
   background-size: cover;
   height: 100vh;
+}
+
+.container {
+  font-family: "shogun";
+  font-size: 180px;
+  color: (231, 0, 0);
+}
+
+p {
+  color: (231, 0, 0);
 }

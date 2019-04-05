@@ -10,7 +10,11 @@ class Ghost {
     rect(510, 10, this.health, 20)
     fill(color(231, 0, 0))
     if (this.health <= 0) {
-      this.health = 5
+      remove()
+      const gameOver = document.createElement("p")
+      gameOver.innerHTML = "You ded, Punk!"
+      gameOver.classList.add("container")
+      document.body.appendChild(gameOver)
     }
 
     // movement & anims

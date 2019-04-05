@@ -13,33 +13,14 @@ class Replicant {
     this.sprite.scope = 0
     this.sprite.index += 0.2
     this.sprite.show()
-    console.log(spawnInterval)
   }
 }
-// function spawnReplicant() {
-//   replicants.push(new Replicant())
-// }
 
-// let spawnInterval = 3000
-
-// setInterval(() => {
-//   if (spawnInterval < 1000) {
-//     spawnInterval = 1000
-//   } else {
-//     spawnInterval -= 300
-//   }
-// }, 5000)
-
-// // repli spawn
-// setInterval(() => {
-//   spawnReplicant()
-// }, spawnInterval)
-
-let spawnInterval = 3000
+let spawnInterval = 5000
 
 function spawnReplicant() {
-  if (spawnInterval <= 500) {
-    spawnInterval = 500
+  if (spawnInterval <= 300) {
+    spawnInterval = 300
   } else {
     spawnInterval -= 300
   }

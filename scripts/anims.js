@@ -3,7 +3,7 @@ class Sprite {
     this.x = x
     this.y = y
     this.animation = animation
-    this.w = this.animation[0].width
+    this.w = animation[0] && animation[0].width
     this.len = this.animation.length
     this.speed = speed * 2
     this.index = 0
