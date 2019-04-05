@@ -16,9 +16,6 @@ body {
 .container {
   font-family: "shogun";
   font-size: 180px;
-  color: (231, 0, 0);
-}
 
-p {
-  color: (231, 0, 0);
+  color: rgb(231, 0, 0);
 }

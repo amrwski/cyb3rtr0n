@@ -10,24 +10,24 @@ let defcon
 let score = 0
 
 function preload() {
-  audio = loadSound("/assets/audio/cyber-tunez.mp3")
-  spritedata = loadJSON("/assets/spritesheets/sprites.json")
-  spritesheet = loadImage("/assets/spritesheets/sheet.png")
-  defcon = loadFont("/assets/fonts/defconzero.ttf")
+  audio = loadSound("cyb3rtr0n/assets/audio/cyber-tunez.mp3")
+  spritedata = loadJSON("cyb3rtr0n/assets/spritesheets/sprites.json")
+  spritesheet = loadImage("cyb3rtr0n//assets/spritesheets/sheet.png")
+  defcon = loadFont("cyb3rtr0n//assets/fonts/defconzero.ttf")
 }
 
 function setup() {
-  mapFloor = loadImage("../assets/background/carbon-floor.png")
-  bulletSprite = loadImage("../assets/bullets/bullet1.png")
-  ghostSprite = loadImage("../assets/cutouts/ghost/front1.png")
+  mapFloor = loadImage("..cyb3rtr0n//assets/background/carbon-floor.png")
+  bulletSprite = loadImage("..cyb3rtr0n//assets/bullets/bullet1.png")
+  ghostSprite = loadImage("..cyb3rtr0n//assets/cutouts/ghost/front1.png")
   splatsArr = [
-    (bloodSplat1 = loadImage("../assets/splats/bloodsplats_0001.png")),
-    (bloodSplat2 = loadImage("../assets/splats/bloodsplats_0002.png")),
-    (bloodSplat3 = loadImage("../assets/splats/bloodsplats_0003.png")),
-    (bloodSplat4 = loadImage("../assets/splats/bloodsplats_0004.png")),
-    (bloodSplat5 = loadImage("../assets/splats/bloodsplats_0005.png")),
-    (bloodSplat6 = loadImage("../assets/splats/bloodsplats_0006.png")),
-    (bloodSplat7 = loadImage("../assets/splats/bloodsplats_0007.png"))
+    (bloodSplat1 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0001.png")),
+    (bloodSplat2 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0002.png")),
+    (bloodSplat3 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0003.png")),
+    (bloodSplat4 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0004.png")),
+    (bloodSplat5 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0005.png")),
+    (bloodSplat6 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0006.png")),
+    (bloodSplat7 = loadImage("..cyb3rtr0n//assets/splats/bloodsplats_0007.png"))
   ]
   randSplat = random(splatsArr)
   createCanvas(WIDTH, HEIGHT)
