@@ -13,7 +13,7 @@ let score = 0
 
 function preload() {
   shakey = loadSound("assets/audio/cyber-tunez.mp3")
-  deathSound = loadSound("/assets/audio/death.ogg")
+  deathSound = loadSound("assets/audio/death.ogg")
   gun = loadSound("assets/audio/gunshot.wav")
   spritedata = loadJSON("assets/spritesheets/sprites.json")
   spritesheet = loadImage("assets/spritesheets/sheet.png")
