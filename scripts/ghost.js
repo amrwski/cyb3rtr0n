@@ -1,5 +1,4 @@
 let container = document.getElementById("container")
-console.log(container)
 
 class Ghost {
   constructor() {
@@ -26,9 +25,13 @@ class Ghost {
       container.appendChild(scoreDisp)
 
       const newGame = document.createElement("button")
-      // <a href=".">link</a>
+      const link = document.createElement("a")
+      newGame.addEventListener("click", function() {
+        document.location.reload()
+      })
       newGame.innerHTML = "Play again?"
       newGame.classList.add("replay")
+      newGame.appendChild(link)
       container.appendChild(newGame)
     }
 
