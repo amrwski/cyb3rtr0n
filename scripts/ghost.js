@@ -1,3 +1,6 @@
+let container = document.getElementById("container")
+console.log(container)
+
 class Ghost {
   constructor() {
     this.pos = createVector(WIDTH / 2, HEIGHT / 2)
@@ -11,15 +14,22 @@ class Ghost {
     fill(color(231, 0, 0))
     if (this.health <= 0) {
       remove()
+
       const gameOver = document.createElement("p")
-      gameOver.innerHTML = "You ded, Punk"
-      gameOver.classList.add("game-over")
-      document.body.appendChild(gameOver)
+      gameOver.innerHTML = "You ded, Punk!"
+      container.classList.add("game-over")
+      container.appendChild(gameOver)
 
       const scoreDisp = document.createElement("p")
       scoreDisp.innerHTML = `You scored a measly ${score} points`
       scoreDisp.classList.add("score-display")
-      document.body.appendChild(scoreDisp)
+      container.appendChild(scoreDisp)
+
+      const newGame = document.createElement("button")
+      // <a href=".">link</a>
+      newGame.innerHTML = "Play again?"
+      newGame.classList.add("replay")
+      container.appendChild(newGame)
     }
 
     // movement & anims
